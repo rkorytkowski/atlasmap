@@ -43,4 +43,19 @@ public class XmlSchemaInspectionFhirTest extends BaseXmlInspectionServiceTest {
         debugFields(xmlDocument.getFields());
     }
 
+    @Ignore("https://github.com/atlasmap/atlasmap/issues/577")
+    @Test
+    public void testNoExtension() throws Exception {
+        File schemaFile = Paths.get("src/test/resources/inspect/fhir-single-no-extension.xsd").toFile();
+        XmlInspectionService service = new XmlInspectionService();
+        XmlDocument xmlDocument = service.inspectSchema(schemaFile);
+        Assert.assertNotNull(xmlDocument);
+        Assert.assertNotNull(xmlDocument.getFields());
+        Assert.assertThat(xmlDocument.getFields().getField().size(), Is.is(117));
+        XmlComplexType root = (XmlComplexType) xmlDocument.getFields().getField().get(0);
+        Assert.assertNotNull(root);
+        Assert.assertThat(root.getXmlFields().getXmlField().size(), Is.is(18));
+        debugFields(xmlDocument.getFields());
+    }
+
 }
