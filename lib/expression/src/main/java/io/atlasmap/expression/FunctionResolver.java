@@ -17,11 +17,12 @@
 package io.atlasmap.expression;
 
 import java.util.List;
+import java.util.Map;
 
 import io.atlasmap.expression.parser.ParseException;
 
 /**
  */
 public interface FunctionResolver {
-    Expression resolve(String functionName, List<Expression> args) throws ParseException;
+    Expression resolve(String functionName, List<Expression> args, Map<String, Expression> properties) throws ParseException;
 }

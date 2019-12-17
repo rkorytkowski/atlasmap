@@ -45,7 +45,7 @@ public interface Expression {
 
     static Expression parse(String expessionText, FunctionResolver functionResolver) throws ExpressionException {
         if (functionResolver == null) {
-            functionResolver = (name, args) -> {
+            functionResolver = (name, args, props) -> {
                 throw new ParseException("Function not found: " + name);
             };
         }

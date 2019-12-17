@@ -16,6 +16,7 @@
 package io.atlasmap.actions;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -96,7 +97,6 @@ public class ExpressionFieldActionTest {
     /**
      * operators
      */
-
     @Test
     public void testAdd() throws Exception {
         Expression action = new Expression();
@@ -187,6 +187,33 @@ public class ExpressionFieldActionTest {
         BigDecimal bigDec = new BigDecimal("1");
         action.setExpression("IF(${0} == 1, 'bigdecimal 1', 'not bigdecimal 1')");
         assertEquals("bigdecimal 1", ExpressionFieldAction.process(action, Arrays.asList(bigDec)));
+    }
+
+    @Test
+    public void testConcatenateActionWithDelimiter() throws Exception {
+        Expression action = new Expression();
+        action.setExpression("CONCATENATE{delimiter=${0}}(${1}, ${2}, ${3})");
+        assertEquals("a,b,c", ExpressionFieldAction.process(action, Arrays.asList(",", "a", "b", "c")));
+    }
+
+    @Test
+    public void testConcatenateActionWithWrongProperty() throws Exception {
+        Expression action = new Expression();
+        action.setExpression("CONCATENATE{delimiter=${0},fail='true'}(${1}, ${2}, ${3})");
+        try {
+            ExpressionFieldAction.process(action, Arrays.asList(",", "a", "b", "c"));
+            fail();
+        } catch (IllegalArgumentException e) {
+            assertEquals(NoSuchMethodException.class, e.getCause().getClass());
+            assertEquals("io.atlasmap.v2.Concatenate.setFail(java.lang.String)", e.getCause().getMessage());
+        }
+    }
+
+    @Test
+    public void testAddNestedAction() throws Exception {
+        Expression action = new Expression();
+        action.setExpression("IF(ADD(${0}, ${1}, ${2}) == ${3}, 'pass', 'fail')");
+        assertEquals("pass", ExpressionFieldAction.process(action, Arrays.asList(1, 2, 3, 6)));
     }
 
 }

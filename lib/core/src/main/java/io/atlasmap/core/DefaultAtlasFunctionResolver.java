@@ -15,20 +15,25 @@
  */
 package io.atlasmap.core;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.ServiceLoader;
 
 import io.atlasmap.expression.Expression;
 import io.atlasmap.expression.FunctionResolver;
 import io.atlasmap.expression.parser.ParseException;
+import io.atlasmap.spi.AtlasFieldActionService;
 import io.atlasmap.spi.FunctionFactory;
+import io.atlasmap.v2.Action;
 
 public class DefaultAtlasFunctionResolver implements FunctionResolver {
-    
+
     private static DefaultAtlasFunctionResolver instance;
 
     private HashMap<String, FunctionFactory> functions = new HashMap<>();
+    private DefaultAtlasFieldActionService fieldActionService;
 
     public static DefaultAtlasFunctionResolver getInstance() {
         if (instance == null) {
@@ -44,17 +49,51 @@ public class DefaultAtlasFunctionResolver implements FunctionResolver {
         for (FunctionFactory f : implementations) {
             functions.put(f.getName().toUpperCase(), f);
         }
+
+        fieldActionService = new DefaultAtlasFieldActionService(DefaultAtlasConversionService.getInstance());
+        fieldActionService.init();
     }
 
     @Override
-    public Expression resolve(String name, List<Expression> args) throws ParseException {
-        name = name.toUpperCase();
-        FunctionFactory f = functions.get(name);
+    public Expression resolve(final String name, List<Expression> args, Map<String, Expression> properties) throws ParseException {
+        String functionName = name.toUpperCase();
+        FunctionFactory f = functions.get(functionName);
         if (f != null) {
             return f.create(args);
+        } else {
+            //lookup action
+            return (ctx) -> {
+                List<Object> values = new ArrayList<>();
+                for (Expression arg: args) {
+                    values.add(arg.evaluate(ctx));
+                }
+
+                Object value = null;
+                if (values.isEmpty()) {
+                    return null;
+                } else if (values.size() == 1) {
+                    value = values.get(0);
+                } else {
+                    value = values;
+                }
+
+                Map<String, Object> evaluatedProperties = new HashMap<>();
+                if (!properties.isEmpty()) {
+                    for (Map.Entry<String, Expression> property: properties.entrySet()) {
+                        evaluatedProperties.put(property.getKey(), property.getValue().evaluate(ctx));
+                    }
+                }
+
+                DefaultAtlasFieldActionService.ActionProcessor actionProcessor = fieldActionService.findActionProcessor(name, value);
+                if (actionProcessor != null) {
+                    return fieldActionService.processAction(actionProcessor, evaluatedProperties, value);
+                } else {
+                    throw new IllegalArgumentException(String.format("The expression function or transformation '%s' was not found", name));
+                }
+            };
         }
 
-        throw new IllegalArgumentException(String.format("The expression function '%s' was not found", name));
+
     }
 
 }

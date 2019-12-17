@@ -19,6 +19,7 @@ package io.atlasmap.expression;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.HashMap;
+import java.util.Map;
 
 import io.atlasmap.expression.internal.ComparisonExpression;
 import io.atlasmap.expression.parser.ParseException;
@@ -32,7 +33,7 @@ import io.atlasmap.expression.internal.BooleanExpression;
 @SuppressWarnings("unchecked")
 public class ExpressionTest extends TestCase {
 
-    static final FunctionResolver FUNCTION_RESOLVER = (name, args) -> {
+    static final FunctionResolver FUNCTION_RESOLVER = (name, args, props) -> {
 
         name = name.toUpperCase();
         if ("LT".equals(name)) {
@@ -65,6 +66,33 @@ public class ExpressionTest extends TestCase {
                     return null;
                 }
                 return value.toString().toLowerCase();
+            };
+        } else if ("CONCATENATE".equals(name)) {
+            if (args.size() < 2) {
+                throw new ParseException("CONCATENATE expects at least 2 arguments.");
+            }
+            if (!props.isEmpty()) {
+                for (Map.Entry prop: props.entrySet()) {
+                    if (!prop.getKey().equals("delimiter")) {
+                        throw new ParseException("Property '" + prop.getKey().toString() + "' is not supported.");
+                    }
+                }
+            }
+
+            return (ctx) -> {
+                String value = "";
+                String delimiter = "";
+                Expression propExpr = props.get("delimiter");
+                if (propExpr != null) {
+                    delimiter = propExpr.evaluate(ctx).toString();
+                }
+
+                boolean first = true;
+                for (Expression arg: args) {
+                    value += (first ? "" : delimiter) + arg.evaluate(ctx);
+                    first = false;
+                }
+                return value;
             };
         }
 
@@ -386,6 +414,25 @@ public class ExpressionTest extends TestCase {
         assertSelector(message, "IF(ToLower(${name}) == 'James', 'good', 'bad')", "bad");
     }
 
+    public void testConcatenateAction() throws Exception {
+        MockMessage message = createMessage();
+        assertSelector(message, "concatenate(ToLower(${name}), ${name})", "jamesJames");
+    }
+
+    public void testConcatenateWithDelimiterAction() throws Exception {
+        MockMessage message = createMessage();
+        assertSelector(message, "concatenate{delimiter=','}(ToLower(${name}), ${name})", "james,James");
+    }
+
+    public void testConcatenateWithBadParamAction() throws Exception {
+        MockMessage message = createMessage();
+        try {
+            assertSelector(message, "concatenate{delimiter=',',fail='true'}(ToLower(${name}), ${name})", "james,James");
+        } catch (ExpressionException e) {
+            assertEquals(ParseException.class, e.getCause().getClass());
+            assertEquals("Property 'fail' is not supported.", e.getCause().getMessage());
+        }
+    }
 
     public void testInvalidSelector() throws Exception {
         MockMessage message = createMessage();
