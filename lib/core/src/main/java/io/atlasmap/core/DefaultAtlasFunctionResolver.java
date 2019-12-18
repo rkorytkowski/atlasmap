@@ -50,7 +50,7 @@ public class DefaultAtlasFunctionResolver implements FunctionResolver {
             functions.put(f.getName().toUpperCase(), f);
         }
 
-        fieldActionService = new DefaultAtlasFieldActionService(DefaultAtlasConversionService.getInstance());
+        fieldActionService = DefaultAtlasFieldActionService.getInstance();
         fieldActionService.init();
     }
 

@@ -55,9 +55,22 @@ public class DefaultAtlasFieldActionService implements AtlasFieldActionService {
     private ReadWriteLock actionProcessorsLock = new ReentrantReadWriteLock();
     private AtlasConversionService conversionService = null;
     private ActionResolver actionResolver = null;
+    private static DefaultAtlasFieldActionService instance;
 
-    public DefaultAtlasFieldActionService(AtlasConversionService conversionService) {
+    private DefaultAtlasFieldActionService(AtlasConversionService conversionService) {
         this.conversionService = conversionService;
+    }
+
+    public static DefaultAtlasFieldActionService getInstance() {
+        if (instance == null) {
+            synchronized (DefaultAtlasFieldActionService.class) {
+                if (instance == null) {
+                    instance = new DefaultAtlasFieldActionService(DefaultAtlasConversionService.getInstance());
+                    instance.init();
+                }
+            }
+        }
+        return instance;
     }
 
     public void init() {
