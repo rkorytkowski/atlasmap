@@ -192,16 +192,23 @@ public class ExpressionFieldActionTest {
     @Test
     public void testConcatenateActionWithDelimiter() throws Exception {
         Expression action = new Expression();
-        action.setExpression("CONCATENATE{delimiter=${0}}(${1}, ${2}, ${3})");
+        action.setExpression("CONCATENATE(${1}, delimiter=${0}, ${2}, ${3})");
         assertEquals("a,b,c", ExpressionFieldAction.process(action, Arrays.asList(",", "a", "b", "c")));
+    }
+
+    @Test
+    public void testConcatenateActionWithoutDelimiter() throws Exception {
+        Expression action = new Expression();
+        action.setExpression("CONCATENATE(${0}, ${1}, ${2})");
+        assertEquals("abc", ExpressionFieldAction.process(action, Arrays.asList("a", "b", "c")));
     }
 
     @Test
     public void testConcatenateActionWithWrongProperty() throws Exception {
         Expression action = new Expression();
-        action.setExpression("CONCATENATE{delimiter=${0},fail='true'}(${1}, ${2}, ${3})");
+        action.setExpression("CONCATENATE(${0}, ${1}, ${2}, delimiter=${3}, fail='true')");
         try {
-            ExpressionFieldAction.process(action, Arrays.asList(",", "a", "b", "c"));
+            ExpressionFieldAction.process(action, Arrays.asList("a", "b", "c", ","));
             fail();
         } catch (IllegalArgumentException e) {
             assertEquals(NoSuchMethodException.class, e.getCause().getClass());

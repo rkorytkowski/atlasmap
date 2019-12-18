@@ -421,13 +421,18 @@ public class ExpressionTest extends TestCase {
 
     public void testConcatenateWithDelimiterAction() throws Exception {
         MockMessage message = createMessage();
-        assertSelector(message, "concatenate{delimiter=','}(ToLower(${name}), ${name})", "james,James");
+        assertSelector(message, "concatenate(ToLower(${name}), ${name}, delimiter=',')", "james,James");
+    }
+
+    public void testConcatenateWithoutDelimiterAction() throws Exception {
+        MockMessage message = createMessage();
+        assertSelector(message, "concatenate(ToLower(${name}), ${name})", "jamesJames");
     }
 
     public void testConcatenateWithBadParamAction() throws Exception {
         MockMessage message = createMessage();
         try {
-            assertSelector(message, "concatenate{delimiter=',',fail='true'}(ToLower(${name}), ${name})", "james,James");
+            assertSelector(message, "concatenate(delimiter=',', fail='true', ToLower(${name}), ${name})", "james,James");
         } catch (ExpressionException e) {
             assertEquals(ParseException.class, e.getCause().getClass());
             assertEquals("Property 'fail' is not supported.", e.getCause().getMessage());

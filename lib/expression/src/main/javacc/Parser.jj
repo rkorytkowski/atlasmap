@@ -371,39 +371,45 @@ Expression functionExpr() :
 }
 {
     (
-        functionName = <ID>
-        (
-            "{"
+        functionName = <ID> "("
+            (
                 (
-                    propertyName = <ID> "="
-                    arg = orExpression()
-                    {
-                        props.put( propertyName.image, arg );
-                    }
+                    LOOKAHEAD(2)
+                    (
+                        arg = orExpression()
+                        {
+                            args.add( arg );
+                        }
+                    )
+                    |
+                    (
+
+                         propertyName = <ID> "="
+                         arg = orExpression()
+                         {
+                             props.put( propertyName.image, arg );
+                         }
+                    )
                 )
                 (
                     ","
-                    propertyName = <ID> "="
-                    arg = orExpression()
-                    {
-                        props.put( propertyName.image, arg );
-                    }
-                )*
-            "}"
-        )?
-        "("
-            (
-                arg = orExpression()
-                {
-                    args.add( arg );
-                }
-                (
-                    ","
-                    arg = orExpression()
-                    {
-                        args.add( arg );
-                    }
-
+                    (
+                        LOOKAHEAD(2)
+                        (
+                            arg = orExpression()
+                            {
+                                args.add( arg );
+                            }
+                        )
+                        |
+                        (
+                            propertyName = <ID> "="
+                            arg = orExpression()
+                            {
+                                props.put( propertyName.image, arg );
+                            }
+                        )
+                    )
                 )*
             )?
         ")"
