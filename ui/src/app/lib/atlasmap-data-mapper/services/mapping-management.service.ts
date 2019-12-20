@@ -15,7 +15,7 @@
 */
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import {Injectable, Input} from '@angular/core';
 import { NGXLogger } from 'ngx-logger';
 
 import { Observable, Subscription, Subject, forkJoin } from 'rxjs';
@@ -64,6 +64,8 @@ export class MappingManagementService {
      'Accept':       'application/json; application/octet-stream'});
   private mappingPreviewInputSubscription: Subscription;
   private mappingUpdatedSubscription: Subscription;
+
+
 
   constructor(private logger: NGXLogger, private http: HttpClient) {}
 
@@ -571,28 +573,39 @@ export class MappingManagementService {
     }
   }
 
+  willRemoveMappingOnTogglingExpression() {
+    if (this.cfg.mappings.activeMapping.transition.enableExpression) {
+      return this.cfg.mappings.activeMapping.getFirstCollectionField(false)
+        || this.cfg.mappings.activeMapping.getFirstCollectionField(true);
+    } else {
+      return false;
+    }
+  }
+
   toggleExpressionMode() {
     if (!this.cfg.mappings || !this.cfg.mappings.activeMapping || !this.cfg.mappings.activeMapping.transition) {
       this.cfg.errorService.addError(new ErrorInfo({
         message: 'Please select a mapping first.', level: ErrorLevel.INFO, scope: ErrorScope.MAPPING, type: ErrorType.USER}));
       return;
     }
-    if (this.cfg.mappings.activeMapping.getFirstCollectionField(false)) {
-      this.cfg.errorService.addError(new ErrorInfo({
-        message: `Cannot establish a conditional mapping expression when referencing a target collection field.`,
-        level: ErrorLevel.WARN, scope: ErrorScope.MAPPING, type: ErrorType.USER, mapping: this.cfg.mappings.activeMapping}));
-      return;
-    } else if (this.cfg.mappings.activeMapping.getFirstCollectionField(true)) {
-      this.cfg.errorService.addError(new ErrorInfo({
-        message: `Cannot establish a conditional mapping expression when referencing a source collection field.`,
-        level: ErrorLevel.WARN, scope: ErrorScope.MAPPING, type: ErrorType.USER, mapping: this.cfg.mappings.activeMapping}));
-      return;
-    } else if (this.cfg.mappings.activeMapping.transition.mode === TransitionMode.ONE_TO_MANY) {
+    if (this.cfg.mappings.activeMapping.transition.mode === TransitionMode.ONE_TO_MANY) {
       this.cfg.errorService.addError(new ErrorInfo({
         message: `Cannot establish a conditional mapping expression when multiple target fields are selected.
         Please select only one target field and try again.`,
         level: ErrorLevel.WARN, scope: ErrorScope.MAPPING, type: ErrorType.USER, mapping: this.cfg.mappings.activeMapping}));
       return;
+    }
+
+    if (this.cfg.mappings.activeMapping.transition.enableExpression) {
+      if (this.cfg.mappings.activeMapping.getFirstCollectionField(false) || this.cfg.mappings.activeMapping.getFirstCollectionField(true)) {
+        const activeMapping = this.cfg.mappings.activeMapping;
+        if (activeMapping.isLookupMode) {
+          this.cfg.mappings.removeTableByName(activeMapping.transition.lookupTableName);
+        }
+        this.cfg.mappingService.removeMapping(activeMapping);
+        this.cfg.showMappingDetailTray = false;
+        return;
+      }
     }
 
     this.cfg.mappings.activeMapping.transition.enableExpression

@@ -172,7 +172,18 @@ export class ToolbarComponent implements OnInit {
     } else if ('resetAll' === action) {
       this.resetAll();
     } else if ('enableExpression') {
-      this.cfg.mappingService.toggleExpressionMode();
+      if (this.cfg.mappingService.willRemoveMappingOnTogglingExpression()) {
+        this.modalWindow.reset();
+        this.modalWindow.confirmButtonText = 'Remove';
+        this.modalWindow.headerText = 'Remove Expression?';
+        this.modalWindow.message = 'If you remove this expression, the current mapping will be removed as well, are you sure?';
+        this.modalWindow.okButtonHandler = (mw: ModalWindowComponent) => {
+          this.cfg.mappingService.toggleExpressionMode();
+        };
+        this.modalWindow.show();
+      } else {
+        this.cfg.mappingService.toggleExpressionMode();
+      }
     }
     // Use the initialization service to trigger the observable updateFromConfig method
     // in the parent data-mapper-app class.  This avoids materializing the lineMachine object
