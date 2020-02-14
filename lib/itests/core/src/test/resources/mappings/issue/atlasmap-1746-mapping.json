@@ -1,0 +1,749 @@
+{
+  "AtlasMapping" : {
+    "jsonType" : "io.atlasmap.v2.AtlasMapping",
+    "dataSource" : [ {
+      "jsonType" : "io.atlasmap.v2.DataSource",
+      "id" : "MsgFromATLASRs",
+      "uri" : "atlas:xml:MsgFromATLASRs",
+      "dataSourceType" : "SOURCE"
+    }, {
+      "jsonType" : "io.atlasmap.json.v2.JsonDataSource",
+      "id" : "MsgFromATLASRs",
+      "uri" : "atlas:json:MsgFromATLASRs",
+      "dataSourceType" : "TARGET"
+    } ],
+    "mappings" : {
+      "mapping" : [ {
+        "jsonType" : "io.atlasmap.v2.Mapping",
+        "inputField" : [ {
+          "jsonType" : "io.atlasmap.xml.v2.XmlField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/temp/taxation",
+          "fieldType" : "STRING",
+          "name" : "taxation"
+        } ],
+        "outputField" : [ {
+          "jsonType" : "io.atlasmap.json.v2.JsonField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/taxation",
+          "fieldType" : "STRING",
+          "name" : "taxation",
+          "userCreated" : false
+        } ],
+        "id" : "mapping.50607"
+      }, {
+        "jsonType" : "io.atlasmap.v2.Mapping",
+        "inputField" : [ {
+          "jsonType" : "io.atlasmap.xml.v2.XmlField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/temp/phone",
+          "fieldType" : "STRING",
+          "name" : "phone"
+        } ],
+        "outputField" : [ {
+          "jsonType" : "io.atlasmap.json.v2.JsonField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/phone",
+          "fieldType" : "STRING",
+          "name" : "phone",
+          "userCreated" : false
+        } ],
+        "id" : "mapping.189523"
+      }, {
+        "jsonType" : "io.atlasmap.v2.Mapping",
+        "inputField" : [ {
+          "jsonType" : "io.atlasmap.xml.v2.XmlField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/temp/name",
+          "fieldType" : "STRING",
+          "name" : "name"
+        } ],
+        "outputField" : [ {
+          "jsonType" : "io.atlasmap.json.v2.JsonField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/name",
+          "fieldType" : "STRING",
+          "name" : "name",
+          "userCreated" : false
+        } ],
+        "id" : "mapping.755544"
+      }, {
+        "jsonType" : "io.atlasmap.v2.Mapping",
+        "inputField" : [ {
+          "jsonType" : "io.atlasmap.xml.v2.XmlField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/temp/inn",
+          "fieldType" : "STRING",
+          "name" : "inn"
+        } ],
+        "outputField" : [ {
+          "jsonType" : "io.atlasmap.json.v2.JsonField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/inn",
+          "fieldType" : "STRING",
+          "name" : "inn",
+          "userCreated" : false
+        } ],
+        "id" : "mapping.173007"
+      }, {
+        "jsonType" : "io.atlasmap.v2.Mapping",
+        "inputField" : [ {
+          "jsonType" : "io.atlasmap.xml.v2.XmlField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/temp/id",
+          "fieldType" : "STRING",
+          "name" : "id"
+        } ],
+        "outputField" : [ {
+          "jsonType" : "io.atlasmap.json.v2.JsonField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/id",
+          "fieldType" : "STRING",
+          "name" : "id",
+          "userCreated" : false
+        } ],
+        "id" : "mapping.676178"
+      }, {
+        "jsonType" : "io.atlasmap.v2.Mapping",
+        "inputField" : [ {
+          "jsonType" : "io.atlasmap.xml.v2.XmlField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/temp/fioHead",
+          "fieldType" : "STRING",
+          "name" : "fioHead"
+        } ],
+        "outputField" : [ {
+          "jsonType" : "io.atlasmap.json.v2.JsonField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/fioHead",
+          "fieldType" : "STRING",
+          "name" : "fioHead",
+          "userCreated" : false
+        } ],
+        "id" : "mapping.312271"
+      }, {
+        "jsonType" : "io.atlasmap.v2.Mapping",
+        "inputField" : [ {
+          "jsonType" : "io.atlasmap.xml.v2.XmlField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/temp/email",
+          "fieldType" : "STRING",
+          "name" : "email"
+        } ],
+        "outputField" : [ {
+          "jsonType" : "io.atlasmap.json.v2.JsonField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/email",
+          "fieldType" : "STRING",
+          "name" : "email",
+          "userCreated" : false
+        } ],
+        "id" : "mapping.840679"
+      }, {
+        "jsonType" : "io.atlasmap.v2.Mapping",
+        "inputField" : [ {
+          "jsonType" : "io.atlasmap.xml.v2.XmlField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/temp/TradePoints/TradePoint<>/TradePoint_address",
+          "fieldType" : "STRING",
+          "name" : "TradePoint_address"
+        } ],
+        "outputField" : [ {
+          "jsonType" : "io.atlasmap.json.v2.JsonField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/TradePoints<>/TradePoint_address",
+          "fieldType" : "STRING",
+          "name" : "TradePoint_address",
+          "userCreated" : false
+        } ],
+        "id" : "mapping.323675"
+      }, {
+        "jsonType" : "io.atlasmap.v2.Mapping",
+        "inputField" : [ {
+          "jsonType" : "io.atlasmap.xml.v2.XmlField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/temp/TradePoints/TradePoint<>/TradePoint_contact_person",
+          "fieldType" : "STRING",
+          "name" : "TradePoint_contact_person"
+        } ],
+        "outputField" : [ {
+          "jsonType" : "io.atlasmap.json.v2.JsonField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/TradePoints<>/TradePoint_contact_person",
+          "fieldType" : "STRING",
+          "name" : "TradePoint_contact_person",
+          "userCreated" : false
+        } ],
+        "id" : "mapping.298069"
+      }, {
+        "jsonType" : "io.atlasmap.v2.Mapping",
+        "inputField" : [ {
+          "jsonType" : "io.atlasmap.xml.v2.XmlField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/temp/TradePoints/TradePoint<>/TradePoint_contact_person_phone",
+          "fieldType" : "STRING",
+          "name" : "TradePoint_contact_person_phone"
+        } ],
+        "outputField" : [ {
+          "jsonType" : "io.atlasmap.json.v2.JsonField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/TradePoints<>/TradePoint_contact_person_phone",
+          "fieldType" : "STRING",
+          "name" : "TradePoint_contact_person_phone",
+          "userCreated" : false
+        } ],
+        "id" : "mapping.492386"
+      }, {
+        "jsonType" : "io.atlasmap.v2.Mapping",
+        "inputField" : [ {
+          "jsonType" : "io.atlasmap.xml.v2.XmlField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/temp/TradePoints/TradePoint<>/TradePoint_id",
+          "fieldType" : "STRING",
+          "name" : "TradePoint_id"
+        } ],
+        "outputField" : [ {
+          "jsonType" : "io.atlasmap.json.v2.JsonField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/TradePoints<>/TradePoint_id",
+          "fieldType" : "STRING",
+          "name" : "TradePoint_id",
+          "userCreated" : false
+        } ],
+        "id" : "mapping.949690"
+      }, {
+        "jsonType" : "io.atlasmap.v2.Mapping",
+        "inputField" : [ {
+          "jsonType" : "io.atlasmap.xml.v2.XmlField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/temp/TradePoints/TradePoint<>/TradePoint_index",
+          "fieldType" : "STRING",
+          "name" : "TradePoint_index"
+        } ],
+        "outputField" : [ {
+          "jsonType" : "io.atlasmap.json.v2.JsonField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/TradePoints<>/TradePoint_index",
+          "fieldType" : "STRING",
+          "name" : "TradePoint_index",
+          "userCreated" : false
+        } ],
+        "id" : "mapping.725812"
+      }, {
+        "jsonType" : "io.atlasmap.v2.Mapping",
+        "inputField" : [ {
+          "jsonType" : "io.atlasmap.xml.v2.XmlField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/temp/TradePoints/TradePoint<>/TradePoint_mcc",
+          "fieldType" : "STRING",
+          "name" : "TradePoint_mcc"
+        } ],
+        "outputField" : [ {
+          "jsonType" : "io.atlasmap.json.v2.JsonField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/TradePoints<>/TradePoint_mcc",
+          "fieldType" : "STRING",
+          "name" : "TradePoint_mcc",
+          "userCreated" : false
+        } ],
+        "id" : "mapping.555629"
+      }, {
+        "jsonType" : "io.atlasmap.v2.Mapping",
+        "inputField" : [ {
+          "jsonType" : "io.atlasmap.xml.v2.XmlField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/temp/TradePoints/TradePoint<>/TradePoint_name",
+          "fieldType" : "STRING",
+          "name" : "TradePoint_name"
+        } ],
+        "outputField" : [ {
+          "jsonType" : "io.atlasmap.json.v2.JsonField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/TradePoints<>/TradePoint_name",
+          "fieldType" : "STRING",
+          "name" : "TradePoint_name",
+          "userCreated" : false
+        } ],
+        "id" : "mapping.516990"
+      }, {
+        "jsonType" : "io.atlasmap.v2.Mapping",
+        "inputField" : [ {
+          "jsonType" : "io.atlasmap.xml.v2.XmlField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/temp/TradePoints/TradePoint<>/TradePoint_okved",
+          "fieldType" : "STRING",
+          "name" : "TradePoint_okved"
+        } ],
+        "outputField" : [ {
+          "jsonType" : "io.atlasmap.json.v2.JsonField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/TradePoints<>/TradePoint_okved",
+          "fieldType" : "STRING",
+          "name" : "TradePoint_okved",
+          "userCreated" : false
+        } ],
+        "id" : "mapping.629404"
+      }, {
+        "jsonType" : "io.atlasmap.v2.Mapping",
+        "inputField" : [ {
+          "jsonType" : "io.atlasmap.xml.v2.XmlField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/temp/TradePoints/TradePoint<>/TradePoint_packages/TradePoint_package<>/devices/device<>/code",
+          "fieldType" : "STRING",
+          "name" : "code"
+        } ],
+        "outputField" : [ {
+          "jsonType" : "io.atlasmap.json.v2.JsonField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/TradePoints<>/TradePoint_packages<>/devices<>/code",
+          "fieldType" : "STRING",
+          "name" : "code",
+          "userCreated" : false
+        } ],
+        "id" : "mapping.210527"
+      }, {
+        "jsonType" : "io.atlasmap.v2.Mapping",
+        "inputField" : [ {
+          "jsonType" : "io.atlasmap.xml.v2.XmlField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/temp/TradePoints/TradePoint<>/TradePoint_packages/TradePoint_package<>/devices/device<>/device_id",
+          "fieldType" : "STRING",
+          "name" : "device_id"
+        } ],
+        "outputField" : [ {
+          "jsonType" : "io.atlasmap.json.v2.JsonField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/TradePoints<>/TradePoint_packages<>/devices<>/device_id",
+          "fieldType" : "STRING",
+          "name" : "device_id",
+          "userCreated" : false
+        } ],
+        "id" : "mapping.661244"
+      }, {
+        "jsonType" : "io.atlasmap.v2.Mapping",
+        "inputField" : [ {
+          "jsonType" : "io.atlasmap.xml.v2.XmlField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/temp/TradePoints/TradePoint<>/TradePoint_packages/TradePoint_package<>/devices/device<>/id_3card",
+          "fieldType" : "STRING",
+          "name" : "id_3card"
+        } ],
+        "outputField" : [ {
+          "jsonType" : "io.atlasmap.json.v2.JsonField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/TradePoints<>/TradePoint_packages<>/devices<>/id_3card",
+          "fieldType" : "STRING",
+          "name" : "id_3card",
+          "userCreated" : false
+        } ],
+        "id" : "mapping.335928"
+      }, {
+        "jsonType" : "io.atlasmap.v2.Mapping",
+        "inputField" : [ {
+          "jsonType" : "io.atlasmap.xml.v2.XmlField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/temp/TradePoints/TradePoint<>/TradePoint_packages/TradePoint_package<>/devices/device<>/name",
+          "fieldType" : "STRING",
+          "name" : "name"
+        } ],
+        "outputField" : [ {
+          "jsonType" : "io.atlasmap.json.v2.JsonField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/TradePoints<>/TradePoint_packages<>/devices<>/name",
+          "fieldType" : "STRING",
+          "name" : "name",
+          "userCreated" : false
+        } ],
+        "id" : "mapping.263209"
+      }, {
+        "jsonType" : "io.atlasmap.v2.Mapping",
+        "inputField" : [ {
+          "jsonType" : "io.atlasmap.xml.v2.XmlField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/temp/TradePoints/TradePoint<>/TradePoint_packages/TradePoint_package<>/devices/device<>/serial",
+          "fieldType" : "STRING",
+          "name" : "serial"
+        } ],
+        "outputField" : [ {
+          "jsonType" : "io.atlasmap.json.v2.JsonField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/TradePoints<>/TradePoint_packages<>/devices<>/serial",
+          "fieldType" : "STRING",
+          "name" : "serial",
+          "userCreated" : false
+        } ],
+        "id" : "mapping.732117"
+      }, {
+        "jsonType" : "io.atlasmap.v2.Mapping",
+        "inputField" : [ {
+          "jsonType" : "io.atlasmap.xml.v2.XmlField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/temp/TradePoints/TradePoint<>/TradePoint_packages/TradePoint_package<>/devices/device<>/state",
+          "fieldType" : "STRING",
+          "name" : "state"
+        } ],
+        "outputField" : [ {
+          "jsonType" : "io.atlasmap.json.v2.JsonField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/TradePoints<>/TradePoint_packages<>/devices<>/state",
+          "fieldType" : "STRING",
+          "name" : "state",
+          "userCreated" : false
+        } ],
+        "id" : "mapping.514914"
+      }, {
+        "jsonType" : "io.atlasmap.v2.Mapping",
+        "inputField" : [ {
+          "jsonType" : "io.atlasmap.xml.v2.XmlField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/temp/TradePoints/TradePoint<>/TradePoint_packages/TradePoint_package<>/devices/device<>/type",
+          "fieldType" : "STRING",
+          "name" : "type"
+        } ],
+        "outputField" : [ {
+          "jsonType" : "io.atlasmap.json.v2.JsonField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/TradePoints<>/TradePoint_packages<>/devices<>/type",
+          "fieldType" : "STRING",
+          "name" : "type",
+          "userCreated" : false
+        } ],
+        "id" : "mapping.160189"
+      }, {
+        "jsonType" : "io.atlasmap.v2.Mapping",
+        "inputField" : [ {
+          "jsonType" : "io.atlasmap.xml.v2.XmlField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/temp/TradePoints/TradePoint<>/TradePoint_packages/TradePoint_package<>/package_code",
+          "fieldType" : "STRING",
+          "name" : "package_code"
+        } ],
+        "outputField" : [ {
+          "jsonType" : "io.atlasmap.json.v2.JsonField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/TradePoints<>/TradePoint_packages<>/package_code",
+          "fieldType" : "STRING",
+          "name" : "package_code",
+          "userCreated" : false
+        } ],
+        "id" : "mapping.842033"
+      }, {
+        "jsonType" : "io.atlasmap.v2.Mapping",
+        "inputField" : [ {
+          "jsonType" : "io.atlasmap.xml.v2.XmlField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/temp/TradePoints/TradePoint<>/TradePoint_packages/TradePoint_package<>/package_name",
+          "fieldType" : "STRING",
+          "name" : "package_name"
+        } ],
+        "outputField" : [ {
+          "jsonType" : "io.atlasmap.json.v2.JsonField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/TradePoints<>/TradePoint_packages<>/package_name",
+          "fieldType" : "STRING",
+          "name" : "package_name",
+          "userCreated" : false
+        } ],
+        "id" : "mapping.806619"
+      }, {
+        "jsonType" : "io.atlasmap.v2.Mapping",
+        "inputField" : [ {
+          "jsonType" : "io.atlasmap.xml.v2.XmlField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/temp/TradePoints/TradePoint<>/TradePoint_packages/TradePoint_package<>/package_price",
+          "fieldType" : "STRING",
+          "name" : "package_price"
+        } ],
+        "outputField" : [ {
+          "jsonType" : "io.atlasmap.json.v2.JsonField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/TradePoints<>/TradePoint_packages<>/package_price",
+          "fieldType" : "STRING",
+          "name" : "package_price",
+          "userCreated" : false
+        } ],
+        "id" : "mapping.202703"
+      }, {
+        "jsonType" : "io.atlasmap.v2.Mapping",
+        "inputField" : [ {
+          "jsonType" : "io.atlasmap.xml.v2.XmlField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/temp/TradePoints/TradePoint<>/TradePoint_packages/TradePoint_package<>/root_package_id",
+          "fieldType" : "STRING",
+          "name" : "root_package_id"
+        } ],
+        "outputField" : [ {
+          "jsonType" : "io.atlasmap.json.v2.JsonField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/TradePoints<>/TradePoint_packages<>/root_package_id",
+          "fieldType" : "STRING",
+          "name" : "root_package_id",
+          "userCreated" : false
+        } ],
+        "id" : "mapping.782776"
+      }, {
+        "jsonType" : "io.atlasmap.v2.Mapping",
+        "inputField" : [ {
+          "jsonType" : "io.atlasmap.xml.v2.XmlField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/temp/TradePoints/TradePoint<>/TradePoint_product_type",
+          "fieldType" : "STRING",
+          "name" : "TradePoint_product_type"
+        } ],
+        "outputField" : [ {
+          "jsonType" : "io.atlasmap.json.v2.JsonField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/TradePoints<>/TradePoint_product_type",
+          "fieldType" : "STRING",
+          "name" : "TradePoint_product_type",
+          "userCreated" : false
+        } ],
+        "id" : "mapping.695591"
+      }, {
+        "jsonType" : "io.atlasmap.v2.Mapping",
+        "inputField" : [ {
+          "jsonType" : "io.atlasmap.xml.v2.XmlField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/temp/TradePoints/TradePoint<>/TradePoint_weekdays",
+          "fieldType" : "STRING",
+          "name" : "TradePoint_weekdays"
+        } ],
+        "outputField" : [ {
+          "jsonType" : "io.atlasmap.json.v2.JsonField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/TradePoints<>/TradePoint_weekdays",
+          "fieldType" : "STRING",
+          "name" : "TradePoint_weekdays",
+          "userCreated" : false
+        } ],
+        "id" : "mapping.66336"
+      }, {
+        "jsonType" : "io.atlasmap.v2.Mapping",
+        "inputField" : [ {
+          "jsonType" : "io.atlasmap.xml.v2.XmlField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/temp/TradePoints/TradePoint<>/TradePoint_weekdays__time",
+          "fieldType" : "STRING",
+          "name" : "TradePoint_weekdays__time"
+        } ],
+        "outputField" : [ {
+          "jsonType" : "io.atlasmap.json.v2.JsonField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/TradePoints<>/TradePoint_weekdays__time",
+          "fieldType" : "STRING",
+          "name" : "TradePoint_weekdays__time",
+          "userCreated" : false
+        } ],
+        "id" : "mapping.586264"
+      }, {
+        "jsonType" : "io.atlasmap.v2.Mapping",
+        "inputField" : [ {
+          "jsonType" : "io.atlasmap.xml.v2.XmlField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/temp/TradePoints/TradePoint<>/TradePoint_weekend",
+          "fieldType" : "STRING",
+          "name" : "TradePoint_weekend"
+        } ],
+        "outputField" : [ {
+          "jsonType" : "io.atlasmap.json.v2.JsonField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/TradePoints<>/TradePoint_weekend",
+          "fieldType" : "STRING",
+          "name" : "TradePoint_weekend",
+          "userCreated" : false
+        } ],
+        "id" : "mapping.307029"
+      }, {
+        "jsonType" : "io.atlasmap.v2.Mapping",
+        "inputField" : [ {
+          "jsonType" : "io.atlasmap.xml.v2.XmlField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/temp/TradePoints/TradePoint<>/TradePoint_weekend__time",
+          "fieldType" : "STRING",
+          "name" : "TradePoint_weekend__time"
+        } ],
+        "outputField" : [ {
+          "jsonType" : "io.atlasmap.json.v2.JsonField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/TradePoints<>/TradePoint_weekend__time",
+          "fieldType" : "STRING",
+          "name" : "TradePoint_weekend__time",
+          "userCreated" : false
+        } ],
+        "id" : "mapping.580801"
+      }, {
+        "jsonType" : "io.atlasmap.v2.Mapping",
+        "inputField" : [ {
+          "jsonType" : "io.atlasmap.xml.v2.XmlField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/temp/TradePoints/TradePoint<>/Tradepoint_avg_check",
+          "fieldType" : "STRING",
+          "name" : "Tradepoint_avg_check"
+        } ],
+        "outputField" : [ {
+          "jsonType" : "io.atlasmap.json.v2.JsonField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/TradePoints<>/Tradepoint_avg_check",
+          "fieldType" : "STRING",
+          "name" : "Tradepoint_avg_check",
+          "userCreated" : false
+        } ],
+        "id" : "mapping.94867"
+      }, {
+        "jsonType" : "io.atlasmap.v2.Mapping",
+        "inputField" : [ {
+          "jsonType" : "io.atlasmap.xml.v2.XmlField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/temp/TradePoints/TradePoint<>/Tradepoint_avg_revenue",
+          "fieldType" : "STRING",
+          "name" : "Tradepoint_avg_revenue"
+        } ],
+        "outputField" : [ {
+          "jsonType" : "io.atlasmap.json.v2.JsonField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/TradePoints<>/Tradepoint_avg_revenue",
+          "fieldType" : "STRING",
+          "name" : "Tradepoint_avg_revenue",
+          "userCreated" : false
+        } ],
+        "id" : "mapping.832875"
+      }, {
+        "jsonType" : "io.atlasmap.v2.Mapping",
+        "inputField" : [ {
+          "jsonType" : "io.atlasmap.xml.v2.XmlField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/temp/TradePoints/TradePoint<>/Tradepoint_email",
+          "fieldType" : "STRING",
+          "name" : "Tradepoint_email"
+        } ],
+        "outputField" : [ {
+          "jsonType" : "io.atlasmap.json.v2.JsonField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/TradePoints<>/Tradepoint_email",
+          "fieldType" : "STRING",
+          "name" : "Tradepoint_email",
+          "userCreated" : false
+        } ],
+        "id" : "mapping.413293"
+      }, {
+        "jsonType" : "io.atlasmap.v2.Mapping",
+        "inputField" : [ {
+          "jsonType" : "io.atlasmap.xml.v2.XmlField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/temp/TradePoints/TradePoint<>/Tradepoint_guid",
+          "fieldType" : "STRING",
+          "name" : "Tradepoint_guid"
+        } ],
+        "outputField" : [ {
+          "jsonType" : "io.atlasmap.json.v2.JsonField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/TradePoints<>/Tradepoint_guid",
+          "fieldType" : "STRING",
+          "name" : "Tradepoint_guid",
+          "userCreated" : false
+        } ],
+        "id" : "mapping.35806"
+      }, {
+        "jsonType" : "io.atlasmap.v2.Mapping",
+        "inputField" : [ {
+          "jsonType" : "io.atlasmap.xml.v2.XmlField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/temp/TradePoints/TradePoint<>/Tradepoint_time_unload",
+          "fieldType" : "STRING",
+          "name" : "Tradepoint_time_unload"
+        } ],
+        "outputField" : [ {
+          "jsonType" : "io.atlasmap.json.v2.JsonField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/TradePoints<>/Tradepoint_time_unload",
+          "fieldType" : "STRING",
+          "name" : "Tradepoint_time_unload",
+          "userCreated" : false
+        } ],
+        "id" : "mapping.988143"
+      }, {
+        "jsonType" : "io.atlasmap.v2.Mapping",
+        "inputField" : [ {
+          "jsonType" : "io.atlasmap.xml.v2.XmlField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/temp/TradePoints/TradePoint<>/fastPay/enabled",
+          "fieldType" : "STRING",
+          "name" : "enabled"
+        } ],
+        "outputField" : [ {
+          "jsonType" : "io.atlasmap.json.v2.JsonField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/TradePoints<>/fastPay/enabled",
+          "fieldType" : "STRING",
+          "name" : "enabled",
+          "userCreated" : false
+        } ],
+        "id" : "mapping.246535"
+      }, {
+        "jsonType" : "io.atlasmap.v2.Mapping",
+        "inputField" : [ {
+          "jsonType" : "io.atlasmap.xml.v2.XmlField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/temp/TradePoints/TradePoint<>/fastPay/login",
+          "fieldType" : "STRING",
+          "name" : "login"
+        } ],
+        "outputField" : [ {
+          "jsonType" : "io.atlasmap.json.v2.JsonField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/TradePoints<>/fastPay/login",
+          "fieldType" : "STRING",
+          "name" : "login",
+          "userCreated" : false
+        } ],
+        "id" : "mapping.23491"
+      }, {
+        "jsonType" : "io.atlasmap.v2.Mapping",
+        "inputField" : [ {
+          "jsonType" : "io.atlasmap.xml.v2.XmlField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/temp/TradePoints/TradePoint<>/fastPay/merchantId",
+          "fieldType" : "STRING",
+          "name" : "merchantId"
+        } ],
+        "outputField" : [ {
+          "jsonType" : "io.atlasmap.json.v2.JsonField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/TradePoints<>/fastPay/merchantId",
+          "fieldType" : "STRING",
+          "name" : "merchantId",
+          "userCreated" : false
+        } ],
+        "id" : "mapping.509732"
+      }, {
+        "jsonType" : "io.atlasmap.v2.Mapping",
+        "inputField" : [ {
+          "jsonType" : "io.atlasmap.xml.v2.XmlField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/temp/TradePoints/TradePoint<>/fastPay/password",
+          "fieldType" : "STRING",
+          "name" : "password"
+        } ],
+        "outputField" : [ {
+          "jsonType" : "io.atlasmap.json.v2.JsonField",
+          "docId" : "MsgFromATLASRs",
+          "path" : "/TradePoints<>/fastPay/password",
+          "fieldType" : "STRING",
+          "name" : "password",
+          "userCreated" : false
+        } ],
+        "id" : "mapping.430033"
+      } ]
+    },
+    "lookupTables" : {
+      "lookupTable" : [ ]
+    },
+    "constants" : {
+      "constant" : [ ]
+    },
+    "properties" : {
+      "property" : [ ]
+    },
+    "name" : "UI.0"
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "taxation" : "",
+  "phone" : "9876543210",
+  "name" : "orgName",
+  "inn" : "000000000000",
+  "id" : "123456",
+  "fioHead" : "X",
+  "email" : "email@gmail.com",
+  "TradePoints" : [ {
+    "TradePoint_address" : "adress1",
+    "TradePoint_contact_person" : "Y1",
+    "TradePoint_contact_person_phone" : "9876543210",
+    "TradePoint_id" : "id3",
+    "TradePoint_index" : "123",
+    "TradePoint_mcc" : "1",
+    "TradePoint_name" : "point1",
+    "TradePoint_okved" : "-",
+    "TradePoint_packages" : [ {
+      "devices" : [ {
+        "code" : "msposEF",
+        "device_id" : "23652602",
+        "id_3card" : "1",
+        "name" : "Z",
+        "serial" : "",
+        "state" : "CREATED",
+        "type" : "terminalPos"
+      }, {
+        "code" : "ofd36",
+        "device_id" : "23652591",
+        "id_3card" : "1",
+        "name" : "Z2",
+        "serial" : "2",
+        "state" : "CREATED",
+        "type" : "ofd"
+      }, {
+        "code" : "fn36",
+        "device_id" : "23652588",
+        "id_3card" : "1",
+        "name" : "Z3",
+        "serial" : "3",
+        "state" : "CREATED",
+        "type" : "fn"
+      } ],
+      "package_code" : "Qwerty",
+      "package_name" : "Q1",
+      "package_price" : "1700",
+      "root_package_id" : "23652603"
+    } ],
+    "TradePoint_product_type" : "ABC",
+    "TradePoint_weekdays" : "ts",
+    "TradePoint_weekdays__time" : "09:00-10:00",
+    "TradePoint_weekend" : "",
+    "TradePoint_weekend__time" : "",
+    "Tradepoint_avg_check" : "5000.00",
+    "Tradepoint_avg_revenue" : "100000.00",
+    "Tradepoint_email" : "email@gmail.com",
+    "Tradepoint_guid" : "id2",
+    "Tradepoint_time_unload" : "08:30",
+    "fastPay" : {
+      "enabled" : "true",
+      "login" : "login",
+      "merchantId" : "id1",
+      "password" : "password"
+    }
+  }, {
+    "TradePoint_address" : "adress2",
+    "TradePoint_contact_person" : "Y2",
+    "TradePoint_contact_person_phone" : "9876543210",
+    "TradePoint_id" : "id6",
+    "TradePoint_index" : "456",
+    "TradePoint_mcc" : "2",
+    "TradePoint_name" : "point2",
+    "TradePoint_okved" : "1",
+    "TradePoint_packages" : [ {
+      "devices" : [ {
+        "code" : "msposEF",
+        "device_id" : "23652602",
+        "id_3card" : "1703090",
+        "name" : "Z4",
+        "serial" : "4",
+        "state" : "Q2",
+        "type" : "terminalPos"
+      } ],
+      "package_code" : "Qwerty2",
+      "package_name" : "ДелоКасса 5+",
+      "package_price" : "500",
+      "root_package_id" : "23652603"
+    }, {
+      "devices" : [ {
+        "code" : "msposEF",
+        "device_id" : "23652602",
+        "id_3card" : "1703092",
+        "name" : "Z5",
+        "serial" : "5",
+        "state" : "CREATED",
+        "type" : "terminalPos"
+      } ],
+      "package_code" : "Qwerty3",
+      "package_name" : "Q3",
+      "package_price" : "500",
+      "root_package_id" : "23652603"
+    } ],
+    "TradePoint_product_type" : "T",
+    "TradePoint_weekdays" : "ts",
+    "TradePoint_weekdays__time" : "09:00-10:00",
+    "TradePoint_weekend" : "",
+    "TradePoint_weekend__time" : "",
+    "Tradepoint_avg_check" : "",
+    "Tradepoint_avg_revenue" : "",
+    "Tradepoint_email" : "email@gmail.com",
+    "Tradepoint_guid" : "id5",
+    "Tradepoint_time_unload" : "",
+    "fastPay" : {
+      "enabled" : "true",
+      "login" : "login",
+      "merchantId" : "id4",
+      "password" : "password"
+    }
+  } ]
+}
